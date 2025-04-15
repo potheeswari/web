@@ -1,0 +1,955 @@
+1) Student Biodata
+<html>
+<center>
+<body>
+<font size=6
+ <h1>Student Bio-data Form</h1>
+<form id="student-form">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required><br><br>
+<label for="age">Age:</label>
+<input type="number" id="age" name="age" min="1"max="125" required><br><br>
+<label for="degree">Degree:</label>
+<select id="deg" name="degree" required>
+<option value="B.SC">B.SC</option>
+<option value="BA">BA</option>
+<option value="B.COM">B.COM</option >
+</select><br><br>
+<label for="department">Department:</label>
+<select id="department" name="department" required>
+<option value="Computer Science">Computer science</option>
+<option value="physics">Physics</option>
+<option value="Chemistry">Chemistry</option>
+<option value="Mathmetics">Mathmetics</option>
+<option value="English">English</option>
+<option value="Tamil">Tamil</option>
+<option value="Commerce">Commerce</option>
+</select><br><br>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required><br><br>
+<label for="phone">Phone:</label><input type="tel" id="phone" name="phone"><br><br>
+<label for="address">Address:</label>
+<textarea id="address" name="address" required></textarea><br><br>
+<input type="submit" value="submit">
+</form>
+<script src="bio1.js"></script>
+</font>
+</body>
+</center>
+</html>
+bio1.js
+document.getElementById('student-form').addEventListener('submit',function(event){
+event.preventDefault();
+var name=document.getElementById('name').value;
+var age=document.getElementById('age').value;
+var degr=document.getElementById('deg').value;
+var department=document.getElementById('department').value;
+var email=document.getElementById('email').value;
+var phone=document.getElementById('phone').value;
+var address=document.getElementById('address').value;
+document.write('Name:',name,"<br>");
+document.write('Age:',age,"<br>");
+document.write('Degree:',degr,"<br>");
+document.write('Email:',email,"<br>");
+document.write('Department:',department,"<br>");
+document.write('Phone:',phone,"<br>");
+document.write('Address:',address,"<br>");
+alert('student biodata submitted successfully!!!');
+});
+
+
+
+
+
+
+                                       2) Cascade Style
+<html>
+<head><link rel="stylesheet"href="samplestyle.css">
+<style>
+h2{font-style:italic;color:blue;}
+</style>
+</head>
+<body>
+<h1 style="color:red;">SRNM COLLEGE SATTUR-626203-Inlinestyle</h1>
+<h2>computer science-Internalstyle</h2>
+<p>welcome to all-Externalstyle</p>
+<h3>lll b.sc cs</h3>
+</body>
+</html>
+Samplestyle.css
+h3
+{
+color:green;
+text-align:center;
+}
+p
+{
+color:orange;
+font-weight:Bold;
+}
+body
+{
+background-color:white;
+}
+
+
+
+                                                 3)Date Object
+<html>
+<head>
+<center><h1><u>Date Object</u></h1></center>
+<script language="javascript">
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var year = date.getFullYear();
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var greets = "";
+if (m < 10) m = "0" + m;
+if (s < 10) s = "0" + s;
+if (h < 12) {
+        greets = "Hi, good morning! Have a good day.";
+    } else if (h >= 12 && h < 16) {
+        greets = "Hi, good afternoon! Have a nice day.";
+    } else {
+        greets = "Hi, good evening! Have a good day.";
+    }
+document.getElementById('date').innerHTML = "<center><h1>Date: " + day + "/" + month + "/" + year + "</h1></center>";
+document.getElementById('time').innerHTML = "<center><h1>Time: " + h + ":" + m + ":" + s + "</h1></center>";
+document.getElementById('wish').innerHTML = "<center><h1>" + greets + "</h1></center>";
+setTimeout(startTime, 1000); 
+}
+</script>
+</head>
+<body align="center" onload="startTime()">
+<div id="date"></div>
+<div id="time"></div>
+<div id="wish"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+                                             4)Minimum Numbers
+<html>
+<head><center><h1><u>Minimum of three numbers</center></h1></u><br><br>
+<script language="javascript">
+function find()
+{
+a=parseInt(document.frm.a.value);
+b=parseInt(document.frm.b.value);
+c=parseInt(document.frm.c.value);
+if(a<b&&a<c)
+{
+document.getElementById('result').innerHTML="A is Minimum";
+}
+else if(b<a&&b<c)
+{
+document.getElementById('result').innerHTML="B is Minimum";
+}
+else if(c<a&&c<b)
+{
+document.getElementById('result').innerHTML="C is Minimum";
+}
+else if(a=b=c)
+{
+document.getElementById('result').innerHTML="A&b&c are equal";
+}
+else
+{
+document.getElementById('result').innerHTML="correct";}
+}
+</script>
+</head>
+<form name=frm>
+<body>
+<center>
+a:<input type="text"name=a><br><br>
+b:<input type="text"name=b><br><br>
+c:<input type="text"name=c><br><br>
+<div id="result">
+</div><br><br>
+<input type=button value="Minimum"bgcolor="pink"onclick="find()">
+</center>
+</body>
+</form>
+</html>
+
+
+
+
+
+ 5)Age Calculation
+<html>  
+<head>  
+<script>  
+function ageCalculator() {  
+    var userinput = document.getElementById("DOB").value;  
+    var dob = new Date(userinput);  
+    if(userinput==null || userinput=='') {  
+      document.getElementById("message").innerHTML = "**Choose a date please!";    
+      return false;   
+    } else {  
+    var month_diff = Date.now() - dob.getTime();  
+    var age_dt = new Date(month_diff);   
+    var year = age_dt.getUTCFullYear();  
+    var age = Math.abs(year - 1970);  
+    return document.getElementById("result").innerHTML =    
+             "Age is: " + age + " years. ";  
+    }  
+}  
+</script>  
+</head>  
+<body>  
+<center>  
+<h2 style="color: 32A80F" align="center"> Calculate Age from Date of Birth <br> <br> </h2>   
+<b> Enter Date of Birth: <input type=date id = DOB> </b>  
+<span id = "message" style="color:red"> </span> <br><br>    
+<button type="submit" onclick = "ageCalculator()"> Calculate age </button> <br><br>  
+<h3 style="color:32A80F" id="result" align="center"></h3>   
+</center>  
+</body>  
+</html>  
+                                         6) Array object
+<html>
+<head>
+<script language="javascript">
+var f=0,
+a=new Array();
+var n=0;
+function create() {
+n = parseInt(prompt("Enter size of the Array"));
+for (i = 0; i < n; i++) {
+a[i] = parseInt(prompt("Enter the values"));
+}
+document.getElementById('result').innerHTML = "<h2><left>Created successfully</h2></left>";
+}
+function view() {
+var elements = "";
+for (i = 0; i < n; i++) {
+elements += a[i] + " ";
+}
+document.getElementById('result').innerHTML = "<h2><left>Array elements: " + elements + "</h2></left>";
+}
+function f1() {
+var k = parseInt(prompt("Enter the element to be searched"));
+for (i = 0; i < n; i++) {
+if (k == a[i]) {
+f = 1;
+break;
+}
+}
+if (f == 1) {
+document.getElementById('result').innerHTML = "<h2><left>" + k + " is found</h2></left>";
+} else {
+document.getElementById('result').innerHTML = "<h2><left>" + k + " is not found</h2></left>";
+}
+}
+function f2() {
+document.getElementById('result').innerHTML = "<h2><left>The length is: " + n + "</h2></left>";
+}
+function f3() {
+var p = a.pop();
+document.getElementById('result').innerHTML = "<h2><left>Pop element is: " + p + "</h2></left>";
+}
+function f4() {
+var n = parseInt(prompt("Enter the element to push"));
+a.push(n);
+document.getElementById('result').innerHTML = "<h2><left>Push element is: " + n + "</h2></left>";
+view();
+}
+function f5() {
+var r = a.reverse();
+document.getElementById('result').innerHTML = "<h2><left>Reversed array: " + r + "</h2></left>";
+}
+function f6() {
+var s = a.sort(function(x, y) { return x - y });
+document.getElementById('result').innerHTML = "<h2><left>Sorted array: " + s + "</h2></left>";
+}
+function f7() {
+var sli = a.slice(1, 4);
+document.getElementById('result').innerHTML = "<h2><left>Slice of the array: " + sli + "</h2></left>";
+}
+</script>
+<h1>Array Object</h1>
+<table border="1">
+<tr>
+<td align="left"><input type="button" onclick="create()" value="Create"><br></td>
+<td align="left"><input type="button" onclick="view()" value="View"></td>
+<td align="left"><input type="button" onclick="f1()" value="Search"></td>
+<td align="left"><input type="button" onclick="f2()" value="Length"></td>
+</tr>
+<tr>
+<td align="left"><input type="button" onclick="f3()" value="Pop"></td>
+<td align="left"><input type="button" onclick="f4()" value="Push"></td>
+<td align="left"><input type="button" onclick="f5()" value="Reverse"></td>
+<td align="left"><input type="button" onclick="f6()" value="Sort"></td>
+</tr>
+<tr>
+<td align="left"><input type="button" onclick="f7()" value="Slice"></td>
+</tr>
+</table>
+<div id="result" align="left"></div><br><br>
+</head>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                7) String function
+<html>
+<head>
+<script language="javascript">
+document.writeln("<center><h1>String Built-in Functions</h1></center>");
+var s = "welcome to SRNMC";
+var l = s.length;
+document.writeln("<u>Length of the string is:</u><br>" + l + "<br><br>");
+var u = s.indexOf("SRNMC");
+document.writeln("<u>Index of 'SRNMC' in the string:</u><br>" + u + "<br><br>");
+var v = s.toUpperCase();
+document.writeln("<u>String to uppercase:</u><br>" + v + "<br><br>");
+var w = s.toLowerCase();
+document.writeln("<u>String to lowercase:</u><br>" + w + "<br><br>");
+var x = s.charAt(11);
+document.writeln("<u>Character at index 11:</u><br>" + x + "<br><br>");
+var q = s.big();
+document.writeln("<u>String in Big (HTML format):</u><br>" + q + "<br><br>");
+var r = s.bold();
+document.writeln("<u>String in Bold (HTML format):</u><br>" + r + "<br><br>");
+var o = s.fontcolor("green");
+document.writeln("<u>Font color of string:</u><br>" + o + "<br><br>");
+var m = s.fontsize(5);  
+document.writeln("<u>Font size of string:</u><br>" + m + "<br><br>");
+var str = "29/06/2002";
+var arr = str.split('/');
+document.writeln("<u>String split:</u><br>" + arr[0] + "<br>" + arr[1] + "<br>" + arr[2] + "<br><br>");
+var y = s.search('to');
+document.writeln("<u>Search for 'to' in the string:</u><br>" + y + "<br><br>");
+var s1 = "wel";
+var s2 = "come";
+var s3 = s1.concat(s2);
+document.writeln("<u>String concatenation:</u><br>" + s3 + "<br><br>");
+var k = s.slice(3, 5);
+document.writeln("<u>Slice (3, 5) of the string:</u><br>" + k + "<br><br>");
+var i = s.substring(11, 15);
+document.writeln("<u>Substring (11, 15) of the string:</u><br>" + i + "<br><br>");
+var str1 = " suriya ";
+var c = str1.trim();
+document.writeln("<u>Trimmed string:</u><br>" + c + "<br><br>");
+var stri = s.replace("SRNMC", "sri.s.ramasamy naidu memorial college");
+document.writeln("<u>String after replace:</u><br>" + stri + "<br><br>");
+</script>
+</head>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                           8) Simple  Calculator
+
+<html>
+<head>
+<script language="javascript">
+function clearScreen()
+{
+document.getElementById("result").value="";
+}
+function display(value)
+{
+document.getElementById("result").value+=value;
+}
+function calculate()
+{
+var p=document.getElementById("result").value;
+var q=eval(p);
+document.getElementById("result").value=q;
+}
+</script>
+</head>
+<body>
+<table border=3>
+<tr>
+<td colspan="3"><input type="text" id="result"/></td>
+<td><input type="button" value="c" onclick="clearScreen()"></td>
+</tr>
+<tr>
+<td><input type="button" value="1" onclick="display('1')"/></td>
+<td><input type="button" value="2" onclick="display('2')"/></td>
+<td><input type="button" value="3" onclick="display('3')"/></td>
+<td><input type="button" value="/" onclick="display('/')"/></td>
+</tr>
+<tr>
+<td><input type="button" value="4" onclick="display('4')"/></td>
+<td><input type="button" value="5" onclick="display('5')"/></td>
+<td><input type="button" value="6" onclick="display('6')"/></td>
+<td><input type="button" value="-" onclick="display('-')"/></td>
+</tr>
+<tr>
+<td><input type="button" value="7" onclick="display('7')"/></td>
+<td><input type="button" value="8" onclick="display('8')"/></td>
+<td><input type="button" value="9" onclick="display('9')"/></td>
+<td><input type="button" value="+" onclick="display('+')"/></td>
+</tr>
+<tr>
+<td><input type="button"value="."onclick="display('.')"/></td>
+<td><input type="button"value="0"onclick="display('0')"/></td>
+<td><input type="button"value="="onclick="calculate()"></td>
+<td><input type="button"value="*"onclick="display('*')"/></td>
+</tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        9)Income tax
+<html>
+<head>
+<center><h1>INCOME TAX CALCULATION</h1></center>
+<center>
+<script language="javascript">
+function tax() {
+var name = document.fm.name.value;
+var no = document.fm.no.value;
+var bp = parseFloat(document.fm.bp.value);
+var hra = bp * 0.15;
+var da = bp * 0.5;
+var pf = bp * 0.05;
+var gpay = bp + da + hra;
+var ai = gpay * 12;
+var tx = 0;
+var txm = 0;
+if (ai <= 300000) {
+            tx = 0;
+} else if (ai > 300000 && ai <= 500000) {
+            tx = (ai - 300000) * 0.05;
+} else if (ai > 500000 && ai <= 1000000) {
+            tx = 200000 * 0.05 + (ai - 500000) * 0.1;
+} else if (ai > 1000000 && ai <= 2000000) {
+            tx = ai * 0.15;
+} else if (ai > 2000000) {
+            tx = ai * 0.2;
+}
+if (tx != 0) {
+            txm = tx / 12;
+}
+var netpay = gpay - txm - pf;
+document.getElementById('itcom').innerHTML = "<h3>DA: 50% and HRA: 15%<br>" + 
+                                                        "PF: 5%<br>DA: " + da + "<br>" + 
+                                                        "HRA: " + hra + "<br>" + 
+                                                        "PF: " + pf + "<br>" + 
+                                                        "Gross pay: " + gpay + "<br>" + 
+                                                        "Annual Income: " + ai + "<br>" + 
+                                                        "Total tax amount: " + Math.round(tx) + "<br>" + 
+                                                        "Tax deduction per month: " + Math.round(txm) + "<br>" + 
+                                                        "Net pay: " + Math.round(netpay);
+}
+</script>
+</head>
+<body><form name="fm">
+Emp_Name: <input type="text" name="name"><br><br>
+Emp_no: <input type="text" name="no"><br><br>
+Basic Pay: <input type="text" name="bp"><br><br>
+<div id="itcom"></div>
+<input type="button" value="Tax calc" onclick="tax()">
+</form>
+</center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      Login Form
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+         border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return validateLogin()">
+            <input type="text" id="username" name="username" placeholder="Enter username" required>
+            <div id="usernameError" class="error"></div>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
+            <div id="passwordError" class="error"></div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+   <script>
+      function validateLogin() {
+            document.getElementById("usernameError").innerText = "";
+            document.getElementById("passwordError").innerText = "";
+
+           let isValid = true;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+                   if (username === "") {
+                document.getElementById("usernameError").innerText = "Username is required.";
+                isValid = false;
+            } else if (username.length < 3) {
+                document.getElementById("usernameError").innerText = "Username should be at least 3 characters.";
+                isValid = false;
+           }
+                    if (password === "") {
+                document.getElementById("passwordError").innerText = "Password is required.";
+                isValid = false;
+            } else if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password should be at least 6 characters.";
+                isValid = false;
+            }
+                const specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;  
+            const numberPattern = /\d/g;  
+
+            const numbersInPassword = password.match(numberPattern) || [];
+            const hasSpecialChar = specialCharPattern.test(password);
+
+            if (!hasSpecialChar) {
+                document.getElementById("passwordError").innerText += " Password must contain at least one special character.";
+                isValid = false;
+            }
+           if (numbersInPassword.length < 4) {
+                document.getElementById("passwordError").innerText += " Password must contain at least four numbers.";
+                isValid = false;
+            }
+            if (isValid) {
+                alert('Student login form submitted successfully');
+                return true;
+            }
+return false }
+ </script>
+</body>
+</html>
+
+
+                              12)Calendar
+<html>
+<head>
+<script language="javascript">
+function fill_table(month, month_len) 
+{
+day = 1
+document.write("<table border=1 cellspacing=3 cellpadding=3%>")
+document.write("<td colspan=7 align=center><b>" + month + " " + year + "</b><tr>")
+document.write("<td align=center width=35>Sun</td>")
+document.write("<td align=center width=35>Mon</td>")
+document.write("<td align=center width=35>Tue</td>")
+document.write("<td align=center width=35>Wed</td>")
+document.write("<td align=center width=35>Thu</td>")
+document.write("<td align=center width=35>Fri</td>")
+document.write("<td align=center width=35>Sat</td>")
+document.write("</tr><tr>");
+for (var i = 1; i < start_day; i++) 
+{
+document.write("<td>") 
+}
+for (var i = start_day; i<8; i++) 
+{
+document.write("<td align=center>" + day + "</td>")
+day++
+}
+document.write("<tr>")
+while (day <= month_len) 
+{
+for (var i = 1; i <= 7 && day <= month_len; i++) 
+{
+document.write("<td align=center>" + day + "</td>")
+day++
+}
+document.write("<tr>")
+start_day=i;
+}
+document.write("</tr></table>")
+}
+year = prompt("Enter the year");
+today = new Date("January 1, " + year)
+start_day = today.getDay() + 1
+fill_table("January", 31)
+if (year % 4 == 0) 
+fill_table("February", 29)
+else 
+fill_table("February", 28)
+fill_table("March", 31)
+fill_table("April", 30)
+fill_table("May", 31)
+fill_table("June", 30)
+fill_table("July", 31)
+fill_table("August", 31)
+fill_table("September", 30)
+fill_table("October", 31)
+fill_table("November", 30)
+fill_table("December", 31)
+</script>
+</head>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                14)Mouse Events
+<html>
+<body>
+<h1><center><head>MOUSE EVENTS</center></h1></head>
+<center>
+<script>
+function showmsg1(msg)
+{
+alert(msg)
+}
+</script>
+<h1 onmouseover="showmsg1('mouse Over')" onmous>India</h1>
+<h1 onmousedown="showmsg1('mouse Down')">TamilNadu</h1>
+<h1 onmouseup="showmsg1('mouse Up')">Computer</h1>
+<input type=button value="click" onclick="showmsg1('simple click')">
+<h1 ondblclick="showmsg1('Double click')">Welcome To All</h1>
+</center>
+</body>
+</html>
+                                      15) Feedback system
+<html>
+<head>
+<script language="javascript">
+function validate() {
+if (frm.frmname.value == "") {
+alert("Please enter your name");
+return false;
+}
+if (frm.frmemail.value == "") {
+alert("Please enter your mail ID");
+return false;
+}
+if (frm.Frmradio[0].checked == false && frm.Frmradio[1].checked == false && frm.Frmradio[2].checked == false) {
+alert("Please give a rating");
+return false;
+}
+alert("Thank you for your feedback");
+return true;
+}
+</script>
+</head>
+<body>
+<center>
+<img src="C:\Users\SRNMC\Pictures\Saved Pictures\logo.jfif" height="200" width="200">
+<h1>Sri S. Ramsamy Naidu Memorial College</h1>
+<h4>(Affiliated to Madurai Kamaraj University)</h4>
+<h3>Sattur-626203, Virudhunagar District, Tamil Nadu</h3>
+<h2><u>STUDENT FEEDBACK FORM</u></h2>
+<form name="frm" method="POST">
+<br><b>Your Name</b>
+<input type="text" size="40" name="frmname" value=""><br><br>
+<b>Your Email</b>
+<input type="email" size="40" name="frmemail" value=""><br><br>
+<b>Overall Rating:</b><br>
+<input type="radio" name="Frmradio" value="Excellent"> Excellent
+<input type="radio" name="Frmradio" value="Good"> Good
+<input type="radio" name="Frmradio" value="Bad"> Bad<br><br>
+<b>Feedback:</b><br>
+<textarea name="Frmfeedback" cols="48" rows="8"></textarea><br><br>
+<input type="button" name="frmSubmit" value="Submit" onclick="validate();">
+<input type="reset" name="frmReset" value="Reset">
+</form>
+</center>
+</body>
+</html>
+                       Application Form
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;  
+      }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            box-sizing: border-box;     
+   }
+        h2 {
+            text-align: center;
+            color: #333;      
+  }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            color: #333;  
+      }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;      
+  }
+        textarea {
+            resize: vertical;
+            height: 100px;       
+ }
+        .form-group {
+            margin-bottom: 15px;     
+   }
+        .gender-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;      
+  }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;       
+ }
+        .submit-btn:hover {
+            background-color: #45a049;      
+  }
+    </style>
+</head>
+<body>
+ <div class="form-container">
+        <h2>Application Form</h2>
+        <form id="applicationForm" onsubmit="submitApplication(event)">
+    <div class="form-group">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name">
+            </div>
+<div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            </div>
+<div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+            </div>
+ <div class="form-group gender-group">
+                <label for="gender">Gender:</label>
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+ <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" required placeholder="Enter your address"></textarea>
+            </div>
+ <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="">Select your country</option>
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="India">India</option>
+                    <option value="Australia">Australia</option>
+                    <option value="UK">UK</option>
+                </select>
+            </div>
+               <div class="form-group">
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function submitApplication(event) {
+          event.preventDefault();
+            const fullName = document.getElementById('full-name').value;
+        const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const address = document.getElementById('address').value;
+            const country = document.getElementById('country').value;
+            const applicationDetails = `
+                Application Details:
+                \nFull Name: ${fullName}
+                \nEmail: ${email}
+                \nPhone Number: ${phone}
+                \nGender: ${gender}
+                \nAddress: ${address}
+                \nCountry: ${country}
+            `;
+alert(applicationDetails);
+ document.getElementById('applicationForm').reset();
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
