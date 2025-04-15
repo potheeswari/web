@@ -1,0 +1,38 @@
+<html>
+<head>
+<center><h1><u>Date Object</u></h1></center>
+<script language="javascript">
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var year = date.getFullYear();
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var greets = "";
+if (m < 10) m = "0" + m;
+if (s < 10) s = "0" + s;
+if (h < 12) {
+        greets = "Hi, good morning! Have a good day.";
+    } else if (h >= 12 && h < 16) {
+        greets = "Hi, good afternoon! Have a nice day.";
+    } else {
+        greets = "Hi, good evening! Have a good day.";
+    }
+document.getElementById('date').innerHTML = "<center><h1>Date: " + day + "/" + month + "/" + year + "</h1></center>";
+document.getElementById('time').innerHTML = "<center><h1>Time: " + h + ":" + m + ":" + s + "</h1></center>";
+document.getElementById('wish').innerHTML = "<center><h1>" + greets + "</h1></center>";
+setTimeout(startTime, 1000); 
+}
+</script>
+</head>
+<body align="center" onload="startTime()">
+<div id="date"></div>
+<div id="time"></div>
+<div id="wish"></div>
+</body>
+</html>
+
+

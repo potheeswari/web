@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Function Demo with Switch Case</title>
+</head>
+<body>
+  <h2>JavaScript String Function Demo</h2>
+
+  <label for="inputStr">Enter a string:</label><br>
+  <input type="text" id="inputStr" placeholder="Type a string..." /><br><br>
+
+  <label for="option">Choose an operation:</label><br>
+  <select id="option" onchange="showExtraInputs()">
+    <option value="">--Select an option--</option>
+    <option value="1">1. toUpperCase</option>
+    <option value="2">2. toLowerCase</option>
+    <option value="3">3. trim</option>
+    <option value="4">4. indexOf (enter text)</option>
+    <option value="5">5. includes (enter text)</option>
+    <option value="6">6. slice (start and end)</option>
+    <option value="7">7. replace (old and new)</option>
+    <option value="8">8. split by space</option>
+    <option value="9">9. length</option>
+    <option value="10">10. charAt (enter position)</option>
+  </select><br><br>
+
+  <div id="extraInputs"></div>
+
+  <button onclick="processString()">Apply Operation</button>
+
+  <h3>Result:</h3>
+  <div id="result"></div>
+
+  <script>
+    function showExtraInputs() {
+      const choice = document.getElementById("option").value;
+      const extraDiv = document.getElementById("extraInputs");
+      extraDiv.innerHTML = ""; // Clear previous inputs
+
+      switch (choice) {
+        case "4": // indexOf
+        case "5": // includes
+          extraDiv.innerHTML = `<label>Enter text to search:</label>
+                                <input type="text" id="searchText" /><br><br>`;
+          break;
+        case "6": // slice
+          extraDiv.innerHTML = `<label>Start Index:</label>
+                                <input type="number" id="startIndex" />
+                                <label>End Index:</label>
+                                <input type="number" id="endIndex" /><br><br>`;
+          break;
+        case "7": // replace
+          extraDiv.innerHTML = `<label>Text to replace:</label>
+                                <input type="text" id="oldText" />
+                                <label>Replacement:</label>
+                                <input type="text" id="newText" /><br><br>`;
+          break;
+        case "10": // charAt
+          extraDiv.innerHTML = `<label>Enter index position:</label>
+                                <input type="number" id="charIndex" /><br><br>`;
+          break;
+      }
+    }
+
+    function processString() {
+      let str = document.getElementById("inputStr").value;
+      let choice = document.getElementById("option").value;
+      let result = "";
+
+      switch (choice) {
+        case "1":
+          result = str.toUpperCase();
+          break;
+        case "2":
+          result = str.toLowerCase();
+          break;
+        case "3":
+          result = str.trim();
+          break;
+        case "4":
+          const searchIndex = document.getElementById("searchText").value;
+          result = str.indexOf(searchIndex);
+          break;
+        case "5":
+          const searchInclude = document.getElementById("searchText").value;
+          result = str.includes(searchInclude);
+          break;
+        case "6":
+          const start = parseInt(document.getElementById("startIndex").value);
+          const end = parseInt(document.getElementById("endIndex").value);
+          result = str.slice(start, end);
+          break;
+        case "7":
+          const oldText = document.getElementById("oldText").value;
+          const newText = document.getElementById("newText").value;
+          result = str.replace(oldText, newText);
+          break;
+        case "8":
+          result = str.split(" ").join(" | ");
+          break;
+        case "9":
+          result = str.length;
+          break;
+        case "10":
+          const index = parseInt(document.getElementById("charIndex").value);
+          result = str.charAt(index);
+          break;
+        default:
+          result = "Invalid option entered.";
+      }
+
+      document.getElementById("result").innerText = result;
+    }
+  </script>
+</body>
+</html>

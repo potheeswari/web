@@ -1,0 +1,81 @@
+<html>
+<head>
+<script language="javascript">
+var f=0,
+a=new Array();
+var n=0;
+function create() {
+n = parseInt(prompt("Enter size of the Array"));
+for (i = 0; i < n; i++) {
+a[i] = parseInt(prompt("Enter the values"));
+}
+document.getElementById('result').innerHTML = "<h2><left>Created successfully</h2></left>";
+}
+function view() {
+var elements = "";
+for (i = 0; i < n; i++) {
+elements += a[i] + " ";
+}
+document.getElementById('result').innerHTML = "<h2><left>Array elements: " + elements + "</h2></left>";
+}
+function f1() {
+var k = parseInt(prompt("Enter the element to be searched"));
+for (i = 0; i < n; i++) {
+if (k == a[i]) {
+f = 1;
+break;
+}
+}
+if (f == 1) {
+document.getElementById('result').innerHTML = "<h2><left>" + k + " is found</h2></left>";
+} else {
+document.getElementById('result').innerHTML = "<h2><left>" + k + " is not found</h2></left>";
+}
+}
+function f2() {
+document.getElementById('result').innerHTML = "<h2><left>The length is: " + n + "</h2></left>";
+}
+function f3() {
+var p = a.pop();
+document.getElementById('result').innerHTML = "<h2><left>Pop element is: " + p + "</h2></left>";
+}
+function f4() {
+var n = parseInt(prompt("Enter the element to push"));
+a.push(n);
+document.getElementById('result').innerHTML = "<h2><left>Push element is: " + n + "</h2></left>";
+view();
+}
+function f5() {
+var r = a.reverse();
+document.getElementById('result').innerHTML = "<h2><left>Reversed array: " + r + "</h2></left>";
+}
+function f6() {
+var s = a.sort(function(x, y) { return x - y });
+document.getElementById('result').innerHTML = "<h2><left>Sorted array: " + s + "</h2></left>";
+}
+function f7() {
+var sli = a.slice(1, 4);
+document.getElementById('result').innerHTML = "<h2><left>Slice of the array: " + sli + "</h2></left>";
+}
+</script>
+<h1>Array Object</h1>
+<table border="1">
+<tr>
+<td align="left"><input type="button" onclick="create()" value="Create"><br></td>
+<td align="left"><input type="button" onclick="view()" value="View"></td>
+<td align="left"><input type="button" onclick="f1()" value="Search"></td>
+<td align="left"><input type="button" onclick="f2()" value="Length"></td>
+</tr>
+<tr>
+<td align="left"><input type="button" onclick="f3()" value="Pop"></td>
+<td align="left"><input type="button" onclick="f4()" value="Push"></td>
+<td align="left"><input type="button" onclick="f5()" value="Reverse"></td>
+<td align="left"><input type="button" onclick="f6()" value="Sort"></td>
+</tr>
+<tr>
+<td align="left"><input type="button" onclick="f7()" value="Slice"></td>
+</tr>
+</table>
+<div id="result" align="left"></div><br><br>
+</head>
+</html>

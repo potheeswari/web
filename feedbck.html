@@ -1,0 +1,45 @@
+<html>
+<head>
+<script language="javascript">
+function validate() {
+if (frm.frmname.value == "") {
+alert("Please enter your name");
+return false;
+}
+if (frm.frmemail.value == "") {
+alert("Please enter your mail ID");
+return false;
+}
+if (frm.Frmradio[0].checked == false && frm.Frmradio[1].checked == false && frm.Frmradio[2].checked == false) {
+alert("Please give a rating");
+return false;
+}
+alert("Thank you for your feedback");
+return true;
+}
+</script>
+</head>
+<body>
+<center>
+<img src="C:\Users\SRNMC\Pictures\Saved Pictures\logo.jfif" height="200" width="200">
+<h1>Sri S. Ramsamy Naidu Memorial College</h1>
+<h4>(Affiliated to Madurai Kamaraj University)</h4>
+<h3>Sattur-626203, Virudhunagar District, Tamil Nadu</h3>
+<h2><u>STUDENT FEEDBACK FORM</u></h2>
+<form name="frm" method="POST">
+<br><b>Your Name</b>
+<input type="text" size="40" name="frmname" value=""><br><br>
+<b>Your Email</b>
+<input type="email" size="40" name="frmemail" value=""><br><br>
+<b>Overall Rating:</b><br>
+<input type="radio" name="Frmradio" value="Excellent"> Excellent
+<input type="radio" name="Frmradio" value="Good"> Good
+<input type="radio" name="Frmradio" value="Bad"> Bad<br><br>
+<b>Feedback:</b><br>
+<textarea name="Frmfeedback" cols="48" rows="8"></textarea><br><br>
+<input type="button" name="frmSubmit" value="Submit" onclick="validate();">
+<input type="reset" name="frmReset" value="Reset">
+</form>
+</center>
+</body>
+</html>

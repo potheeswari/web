@@ -1,0 +1,54 @@
+<html>
+<head>
+<center><h1>INCOME TAX CALCULATION</h1></center>
+<center>
+<script language="javascript">
+function tax() {
+var name = document.fm.name.value;
+var no = document.fm.no.value;
+var bp = parseFloat(document.fm.bp.value);
+var hra = bp * 0.15;
+var da = bp * 0.5;
+var pf = bp * 0.05;
+var gpay = bp + da + hra;
+var ai = gpay * 12;
+var tx = 0;
+var txm = 0;
+if (ai <= 300000) {
+            tx = 0;
+} else if (ai > 300000 && ai <= 500000) {
+            tx = (ai - 300000) * 0.05;
+} else if (ai > 500000 && ai <= 1000000) {
+            tx = 200000 * 0.05 + (ai - 500000) * 0.1;
+} else if (ai > 1000000 && ai <= 2000000) {
+            tx = ai * 0.15;
+} else if (ai > 2000000) {
+            tx = ai * 0.2;
+}
+if (tx != 0) {
+            txm = tx / 12;
+}
+var netpay = gpay - txm - pf;
+document.getElementById('itcom').innerHTML = "<h3>DA: 50% and HRA: 15%<br>" + 
+                                                        "PF: 5%<br>DA: " + da + "<br>" + 
+                                                        "HRA: " + hra + "<br>" + 
+                                                        "PF: " + pf + "<br>" + 
+                                                        "Gross pay: " + gpay + "<br>" + 
+                                                        "Annual Income: " + ai + "<br>" + 
+                                                        "Total tax amount: " + Math.round(tx) + "<br>" + 
+                                                        "Tax deduction per month: " + Math.round(txm) + "<br>" + 
+                                                        "Net pay: " + Math.round(netpay);
+}
+</script>
+</head>
+<body><form name="fm">
+Emp_Name: <input type="text" name="name"><br><br>
+Emp_no: <input type="text" name="no"><br><br>
+Basic Pay: <input type="text" name="bp"><br><br>
+<div id="itcom"></div>
+<input type="button" value="Tax calc" onclick="tax()">
+</form>
+</center>
+</body>
+</html>
+

@@ -1,0 +1,57 @@
+<html>
+<center>
+<body>
+<font size=6
+ <h1>Student Bio-data Form</h1>
+<form id="student-form">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required><br><br>
+<label for="age">Age:</label>
+<input type="number" id="age" name="age" min="1"max="125" required><br><br>
+<label for="degree">Degree:</label>
+<select id="deg" name="degree" required>
+<option value="B.SC">B.SC</option>
+<option value="BA">BA</option>
+<option value="B.COM">B.COM</option >
+</select><br><br>
+<label for="department">Department:</label>
+<select id="department" name="department" required>
+<option value="Computer Science">Computer science</option>
+<option value="physics">Physics</option>
+<option value="Chemistry">Chemistry</option>
+<option value="Mathmetics">Mathmetics</option>
+<option value="English">English</option>
+<option value="Tamil">Tamil</option>
+<option value="Commerce">Commerce</option>
+</select><br><br>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required><br><br>
+<label for="phone">Phone:</label><input type="tel" id="phone" name="phone"><br><br>
+<label for="address">Address:</label>
+<textarea id="address" name="address" required></textarea><br><br>
+<input type="submit" value="submit">
+</form>
+<script src="bio1.js"></script>
+</font>
+</body>
+</center>
+</html>
+bio1.js
+document.getElementById('student-form').addEventListener('submit',function(event){
+event.preventDefault();
+var name=document.getElementById('name').value;
+var age=document.getElementById('age').value;
+var degr=document.getElementById('deg').value;
+var department=document.getElementById('department').value;
+var email=document.getElementById('email').value;
+var phone=document.getElementById('phone').value;
+var address=document.getElementById('address').value;
+document.write('Name:',name,"<br>");
+document.write('Age:',age,"<br>");
+document.write('Degree:',degr,"<br>");
+document.write('Email:',email,"<br>");
+document.write('Department:',department,"<br>");
+document.write('Phone:',phone,"<br>");
+document.write('Address:',address,"<br>");
+alert('student biodata submitted successfully!!!');
+});

@@ -1,0 +1,43 @@
+<html>
+<head><center><h1><u>Minimum of three numbers</center></h1></u><br><br>
+<script language="javascript">
+function find()
+{
+a=parseInt(document.frm.a.value);
+b=parseInt(document.frm.b.value);
+c=parseInt(document.frm.c.value);
+if(a<b&&a<c)
+{
+document.getElementById('result').innerHTML="A is Minimum";
+}
+else if(b<a&&b<c)
+{
+document.getElementById('result').innerHTML="B is Minimum";
+}
+else if(c<a&&c<b)
+{
+document.getElementById('result').innerHTML="C is Minimum";
+}
+else if(a=b=c)
+{
+document.getElementById('result').innerHTML="A&b&c are equal";
+}
+else
+{
+document.getElementById('result').innerHTML="correct";}
+}
+</script>
+</head>
+<form name=frm>
+<body>
+<center>
+a:<input type="text"name=a><br><br>
+b:<input type="text"name=b><br><br>
+c:<input type="text"name=c><br><br>
+<div id="result">
+</div><br><br>
+<input type=button value="Minimum"bgcolor="pink"onclick="find()">
+</center>
+</body>
+</form>
+</html>
