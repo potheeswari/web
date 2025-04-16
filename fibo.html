@@ -1,0 +1,38 @@
+<html>
+<head>
+    <center><h1><u>Fibonacci Series Calculator</u></h1></center>
+    <script language="Javascript">
+        function calculateFibonacci() {
+            var number = document.getElementById('inputNumber').value;
+            var fibonacciSeries = [];
+            
+            if (number <= 0) {
+                document.getElementById('result').innerHTML = "<h2>Please enter a positive number.</h2>";
+                return;
+            }
+
+            // The first two Fibonacci numbers
+            var a = 0;
+            var b = 1;
+
+            // Generate Fibonacci series
+            for (var i = 1; i <= number; i++) {
+                fibonacciSeries.push(a);
+                var nextTerm = a + b;
+                a = b;
+                b = nextTerm;
+            }
+
+            document.getElementById('result').innerHTML = "<h2>Fibonacci Series up to " + number + " terms: </h2>" + fibonacciSeries.join(", ");
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h2>Enter the number of terms:</h2><input type="number" id="inputNumber" /><br>
+        <br><button onclick="calculateFibonacci()">Calculate Fibonacci</button>
+    </div>
+
+    <div id="result" style="text-align: center;"></div>
+</body>
+</html>
