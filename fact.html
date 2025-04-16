@@ -1,0 +1,31 @@
+<html>
+<head>
+<br><br><br><br>
+    <center><h1><u>Factorial Calculator</u></h1></center>
+    <script language="Javascript">
+        function calculateFactorial() {
+            var number = document.getElementById('inputNumber').value;
+            var result = 1;
+
+            if (number < 0) {
+                document.getElementById('result').innerHTML = "<h2>Factorial is not defined for negative numbers.</h2>";
+                return;
+            }
+
+            for (var i = 1; i <= number; i++) {
+                result *= i;
+            }
+
+            document.getElementById('result').innerHTML = "<h2>Factorial of " + number + " is " + result + "</h2>";
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h2>Enter a number:</h2><input type="number" id="inputNumber" /><br>
+        <br><button onclick="calculateFactorial()">Calculate Factorial</button>
+    </div>
+
+    <div id="result" style="text-align: center;"></div>
+</body>
+</html>
